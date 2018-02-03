@@ -1,4 +1,4 @@
-/*******************************************************************
+/******************************************************************
 * Michael S. Lewis
 * CS 362 Winter 2018
 * Random Testing (RT) Quiz: testme.c
@@ -28,11 +28,11 @@ char *inputString()
     int value = (rand() % 6) + 1;
     int noNull = value - 1;
     char string[7] = "erst";
-    char s = malloc(sizeof(char)*value);
+    char *s = malloc(sizeof(char)*value);
 
     for (i=0; i < noNull; i++)
     {
-      index = rand % 6;
+      index = rand() % 6;
       s[i] = string[index];
     }
     s[value] = '\0'; // Appends null terminator to end of string.
