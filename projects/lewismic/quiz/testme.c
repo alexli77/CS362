@@ -4,10 +4,10 @@
 * Random Testing (RT) Quiz: testme.c
 ********************************************************************/
 
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include<time.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
 char inputChar()
 {
@@ -32,7 +32,7 @@ char *inputString()
 
     for (i=0; i < noNull; i++)
     {
-      index = rand() % 6;
+      index = rand() % 4; // Modulus of 4 chosen for four characters.
       s[i] = string[index];
     }
     s[value] = '\0'; // Appends null terminator to end of string.
