@@ -22,7 +22,7 @@ int main()
    int success = 0;
    struct gameState G;
 
-   printf("Testing %s()\n", FUNC_TEST);
+   printf("Testing %s():\n", FUNC_TEST);
 
    /* Runs test NUM_TESTS times, incrementing turn and testing for match with result on each iteration */
    for (i = 0; i < NUM_TESTS; i++){
@@ -30,9 +30,9 @@ int main()
       result = whoseTurn(&G);
 
       if (result == turn)   // asserttrue
-         printf("Test %d passed! Expected turn matches actual result of whoseTurn().\n", i);
+         printf("Test %d passed! Expected turn matches actual result of whoseTurn().\n", i + 1);
       else {
-         printf("Test %d failed. Expected turn: %d, Actual result: %d\n", i, turn, result);
+         printf("Test %d failed. Expected turn: %d, Actual result: %d\n", i + 1, turn, result);
          success = -5;
       }
       turn++;

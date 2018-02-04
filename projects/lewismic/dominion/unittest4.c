@@ -23,7 +23,7 @@ int main()
     int k[10] = {adventurer, council_room, feast, gardens, mine,
                     remodel, smithy, village, baron, great_hall};
 
-    printf("Testing %s()\n", FUNC_TEST);
+    printf("Testing %s():\n", FUNC_TEST);
 
     // Tests initializeGame().
     result = initializeGame(MAX_PLAYERS, k, seed, &G);   // Initializes a new game.

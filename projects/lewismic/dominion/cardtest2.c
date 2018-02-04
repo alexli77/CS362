@@ -15,7 +15,6 @@
 
 int main() 
 {
-    int i;
     int result;
     int seed = 1000;
     int flag = 0;
@@ -25,7 +24,7 @@ int main()
     int k[10] = {adventurer, council_room, feast, gardens, mine,
                     remodel, smithy, village, baron, great_hall};
 
-   printf("TESTING %s card\n", CARD_TEST);
+   printf("TESTING %s card:\n", CARD_TEST);
 
     // Tests initializeGame().
     result = initializeGame(numPlayer, k, seed, &G);
@@ -51,7 +50,9 @@ int main()
     }
 
     // Tests for correct gain of 3 cards from deck and discard of Smithy.
-    playSmithy(thisPlayer, &testG, 0);
+    cardEffect(smithy, 0, 0, 0, &testG, 
+            testG.hand[thisPlayer][testG.handCount[thisPlayer]-1], 0);
+
     if (G.handCount[thisPlayer] + 3 == testG.handCount[thisPlayer])
         printf("Test passed! Player gained 3 new cards and discarded 1.\n");
     else

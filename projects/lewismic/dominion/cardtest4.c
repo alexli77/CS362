@@ -25,7 +25,7 @@ int main()
     int k[10] = {adventurer, council_room, feast, gardens, mine,
                     remodel, smithy, village, baron, great_hall};
 
-  printf("TESTING %s card\n", CARD_TEST);
+  printf("TESTING %s card:\n", CARD_TEST);
 
     // Tests initializeGame().
     result = initializeGame(numPlayer, k, seed, &G);
@@ -51,7 +51,9 @@ int main()
     }
 
     //play Council Room card, +4 cards 
-    playCouncil_room(thisPlayer, &testG, 0);
+    cardEffect(council_room, 0, 0, 0, &testG, 
+            testG.hand[thisPlayer][testG.handCount[thisPlayer]-1], 0);
+
     if (G.handCount[thisPlayer] + 4 == testG.handCount[thisPlayer])
         printf("Test passed! Player 1 drew 4 new cards, discarded 1.\n");
     else

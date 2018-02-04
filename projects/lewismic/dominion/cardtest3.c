@@ -15,7 +15,6 @@
 
 int main() 
 {
-    int i;
     int result;
     int seed = 1000;
     int flag = 0;
@@ -25,7 +24,7 @@ int main()
     int k[10] = {adventurer, council_room, feast, gardens, mine,
                     remodel, smithy, village, baron, great_hall};
 
-  printf("TESTING %s card\n", CARD_TEST);
+  printf("TESTING %s card:\n", CARD_TEST);
 
     // Tests initializeGame().
     result = initializeGame(numPlayer, k, seed, &G);

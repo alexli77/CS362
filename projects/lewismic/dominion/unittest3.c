@@ -15,7 +15,7 @@
 
 #define FUNC_TEST "updateCoins"
 #define SIZE_HAND   5
-#define SIZE_BONUS  10
+#define SIZE_BONUS  2
 
 int main()
 {
@@ -58,40 +58,37 @@ int main()
         /* Verifies copper count. */
         memcpy(G.hand[p], coppers, sizeof(int) * handCount);
         updateCoins(p, &G, bonus);
-        printf ("G.coins = %d, expected = %d\n", G.coins, handCount * 1 + bonus);
-        assert(G.coins == handCount * 1 + bonus);
-        if (result == turn)   // asserttrue
-          printf("Test %d passed! Expected number of coppers matches actual result.\n", numTest++);
+
+        if (G.coins == handCount * 1 + bonus)   // asserttrue
+          printf("Test %d passed! Expected number of %d coppers matches actual result.\n", numTest++, G.coins);
         else
         {
-          printf("Test %d failed. Expected number of coppers does not match actual result.\n", numTest++);
-          success = -5;
+          printf("Test %d failed. Expected number of %d coppers does not match actual result.\n", numTest++, G.coins);
+          flag = -5;
         }
 
         /* Verifies silver count. */
         memcpy(G.hand[p], silvers, sizeof(int) * handCount);
         updateCoins(p, &G, bonus);
-        printf ("G.coins = %d, expected = %d\n", G.coins, handCount * 2 + bonus);
-        assert(G.coins == handCount * 2 + bonus);
-        if (result == turn)   // asserttrue
-          printf("Test %d passed! Expected number of silvers matches actual result.\n", numTest++);
+
+        if (G.coins == handCount * 2 + bonus)   // asserttrue
+          printf("Test %d passed! Expected number of %d silvers matches actual result.\n", numTest++, G.coins);
         else
         {
-          printf("Test %d failed. Expected number of silvers does not match actual result.\n", numTest++);
-          success = -5;
+          printf("Test %d failed. Expected number of %d silvers does not match actual result.\n", numTest++, G.coins);
+          flag = -5;
         }
 
         /* Verifies gold count. */
         memcpy(G.hand[p], golds, sizeof(int) * handCount);
         updateCoins(p, &G, bonus);
-        printf ("G.coins = %d, expected = %d\n", G.coins, handCount * 3 + bonus);
-        assert(G.coins == handCount * 3 + bonus);
-        if (result == turn)   // asserttrue
-          printf("Test %d passed! Expected number of golds matches actual result.\n", numTest++);
+
+        if (G.coins == handCount * 3 + bonus)   // asserttrue
+          printf("Test %d passed! Expected number of %d golds matches actual result.\n", numTest++, G.coins);
         else
         {
-          printf("Test %d failed. Expected number of golds does not match actual result.\n", numTest++);
-          success = -5;
+          printf("Test %d failed. Expected number of %d golds does not match actual result.\n", numTest++, G.coins);
+          flag = -5;
         }
       }
     }

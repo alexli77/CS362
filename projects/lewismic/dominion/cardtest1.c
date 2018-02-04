@@ -22,13 +22,13 @@ int main()
     int numPlayer = 2;
     int thisPlayer = 0;
     int cardDrawn1, cardDrawn2;
-    int finalCount = 0
+    int finalCount = 0;
     int originalCount = 0;
     struct gameState G, testG;
     int k[10] = {adventurer, council_room, feast, gardens, mine,
                     remodel, smithy, village, baron, great_hall};
 
-  printf("TESTING %s card\n", CARD_TEST);
+  printf("TESTING %s card:\n", CARD_TEST);
 
     // Tests initializeGame().
     result = initializeGame(numPlayer, k, seed, &G);
@@ -54,7 +54,8 @@ int main()
     }
 
     // Tests Adventurer card for draw of 2 treasure cards.
-    playAdventurer(thisPlayer, &testG);
+    cardEffect(adventurer, 0, 0, 0, &testG, 
+            testG.hand[thisPlayer][testG.handCount[thisPlayer]-1], 0);
 
     // Verifies that at least 2 new treasure cards were added to hand.
     for (i = 0; i < testG.handCount[thisPlayer]; i++) 
