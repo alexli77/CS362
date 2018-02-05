@@ -24,9 +24,9 @@ int main()
     int k[10] = {adventurer, council_room, feast, gardens, mine,
                     remodel, smithy, village, baron, great_hall};
 
-  printf("TESTING %s card:\n", CARD_TEST);
+    printf("Testing %s card:\n", CARD_TEST);
 
-    // Tests initializeGame().
+    /* Tests initializeGame(). */
     result = initializeGame(numPlayer, k, seed, &G);
     if (result == -1)
     {
@@ -38,7 +38,7 @@ int main()
 
     memcpy(&testG, &G, sizeof(struct gameState));
 
-    //give Village card to first player
+    /* Draws Village card for player 1. */
     testG.hand[thisPlayer][testG.handCount[thisPlayer]] = village;
     testG.handCount[thisPlayer]++;
     if (G.handCount[thisPlayer] + 1 == testG.handCount[thisPlayer])
@@ -49,11 +49,11 @@ int main()
         flag = -5;
     }
 
-    //play Village card
+    /* Plays Village card. */
     cardEffect(village, 0, 0, 0, &testG, 
             testG.hand[thisPlayer][testG.handCount[thisPlayer]-1], 0);
     
-    //test that player gained 1 card
+    /* Tests for +1 card gain by Player 1. */
     if (G.handCount[thisPlayer] + 1 == testG.handCount[thisPlayer])
         printf("Test passed! Player gained 1 new card, discarded 1.\n");
     else
@@ -62,7 +62,7 @@ int main()
         flag = -5;
     }
 
-    //test that player gained 2 actions
+    /* Tests for +2 action gain by Player 1. */
     if (G.numActions + 2 == testG.numActions)
         printf("Test passed! Player gained 2 actions.\n");
     else
@@ -71,10 +71,10 @@ int main()
         flag = -5;
     }
 
-  if(flag == 0)
-    printf("All tests passed!\n\n");
-  else
-    printf("TESTING FAILED!\n\n");
+    if(flag == 0)
+        printf("All tests passed!\n\n");
+    else
+        printf("TESTING FAILED!\n\n");
 
     return 0;
 }

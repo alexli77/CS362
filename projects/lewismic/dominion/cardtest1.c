@@ -28,9 +28,9 @@ int main()
     int k[10] = {adventurer, council_room, feast, gardens, mine,
                     remodel, smithy, village, baron, great_hall};
 
-  printf("TESTING %s card:\n", CARD_TEST);
+  printf("Testing %s card:\n", CARD_TEST);
 
-    // Tests initializeGame().
+    /* Tests initializeGame(). */
     result = initializeGame(numPlayer, k, seed, &G);
     if (result == -1)
     {
@@ -42,7 +42,7 @@ int main()
 
     memcpy(&testG, &G, sizeof(struct gameState));
 
-    // Tests draw of Adventurer card to player's hand.
+    /* Tests draw of Adventurer card to player's hand. */
     testG.hand[thisPlayer][testG.handCount[thisPlayer]] = adventurer;
     testG.handCount[thisPlayer]++;
     if (G.handCount[thisPlayer] + 1 == testG.handCount[thisPlayer])
@@ -53,11 +53,11 @@ int main()
         flag = -5;
     }
 
-    // Tests Adventurer card for draw of 2 treasure cards.
+    /* Tests Adventurer card for draw of 2 treasure cards. */
     cardEffect(adventurer, 0, 0, 0, &testG, 
             testG.hand[thisPlayer][testG.handCount[thisPlayer]-1], 0);
 
-    // Verifies that at least 2 new treasure cards were added to hand.
+    /* Verifies that at least 2 new treasure cards were added to hand. */
     for (i = 0; i < testG.handCount[thisPlayer]; i++) 
     {
        cardDrawn1 = testG.hand[thisPlayer][i];
@@ -79,7 +79,7 @@ int main()
       flag = -5;
     }
 
-    // Verifies that more cards are present after playing Adventure card.
+    /* Verifies that additional cards are present after playing Adventure card. */
     if (G.handCount[thisPlayer] < testG.handCount[thisPlayer])
        printf("Test passed! Additional cards added to test hand.\n");
     else

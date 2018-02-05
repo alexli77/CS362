@@ -25,9 +25,9 @@ int main()
     int k[10] = {adventurer, council_room, feast, gardens, mine,
                     remodel, smithy, village, baron, great_hall};
 
-  printf("TESTING %s card:\n", CARD_TEST);
+  printf("Testing %s card:\n", CARD_TEST);
 
-    // Tests initializeGame().
+    /* Tests initializeGame(). */
     result = initializeGame(numPlayer, k, seed, &G);
     if (result == -1)
     {
@@ -39,7 +39,7 @@ int main()
 
     memcpy(&testG, &G, sizeof(struct gameState));
 
-    //give Council Room card to first player
+    /* Draws a Council Room card for Player 1. */
     testG.hand[thisPlayer][testG.handCount[thisPlayer]] = council_room;
     testG.handCount[thisPlayer]++;
     if (G.handCount[thisPlayer] + 1 == testG.handCount[thisPlayer])
@@ -50,7 +50,7 @@ int main()
         flag = -5;
     }
 
-    //play Council Room card, +4 cards 
+    /* Plays Council Room card and tests for gain of +4 cards. */
     cardEffect(council_room, 0, 0, 0, &testG, 
             testG.hand[thisPlayer][testG.handCount[thisPlayer]-1], 0);
 
@@ -62,7 +62,7 @@ int main()
         flag = -5;
     }
 
-    //check for +1 buy to first player
+    /* Tests gain of +1 buy for Player 1. */
     if (G.numBuys + 1 == testG.numBuys)
         printf("Test passed! Player 1 gained +1 buy.\n");
     else
@@ -71,7 +71,7 @@ int main()
         flag = -5;
     }
 
-    //check other players to verify +1 card
+    /* Tests gain of +1 card for each other player. */
     for (i = 1; i < numPlayer; i++)
     {
         if (G.handCount[i] + 1 == testG.handCount[i])

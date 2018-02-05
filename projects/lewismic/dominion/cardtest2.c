@@ -24,9 +24,9 @@ int main()
     int k[10] = {adventurer, council_room, feast, gardens, mine,
                     remodel, smithy, village, baron, great_hall};
 
-   printf("TESTING %s card:\n", CARD_TEST);
+   printf("Testing %s card:\n", CARD_TEST);
 
-    // Tests initializeGame().
+    /* Tests initializeGame(). */
     result = initializeGame(numPlayer, k, seed, &G);
     if (result == -1)
     {
@@ -38,7 +38,7 @@ int main()
 
     memcpy(&testG, &G, sizeof(struct gameState));
 
-    // Tests draw of Smithy card to player's hand.
+    /* Tests draw of Smithy card to player's hand. */
     testG.hand[thisPlayer][testG.handCount[thisPlayer]] = smithy;
     testG.handCount[thisPlayer]++;
     if (G.handCount[thisPlayer] + 1 == testG.handCount[thisPlayer])
@@ -49,7 +49,7 @@ int main()
         flag = -5;
     }
 
-    // Tests for correct gain of 3 cards from deck and discard of Smithy.
+    /* Tests for correct gain of 3 cards from deck and discard of Smithy. */
     cardEffect(smithy, 0, 0, 0, &testG, 
             testG.hand[thisPlayer][testG.handCount[thisPlayer]-1], 0);
 

@@ -25,9 +25,9 @@ int main()
 
     printf("Testing %s():\n", FUNC_TEST);
 
-    // Tests initializeGame().
-    result = initializeGame(MAX_PLAYERS, k, seed, &G);   // Initializes a new game.
-   if (result == -1)
+    /* Tests initializeGame(). */
+    result = initializeGame(MAX_PLAYERS, k, seed, &G);
+    if (result == -1)
     {
       printf("Test failed. Game initialization unsuccessful.\n");
       flag = -5;
@@ -70,11 +70,11 @@ int main()
             printf("Test passed. Correct result, game continues.\n");
     }
 
-   /* Prints conclusion of testing result. */
-   if(flag == 0)
-      printf("All tests passed!\n\n");
-   else
-      printf("TESTING FAILED!\n\n");
+    /* Prints conclusion of testing result. */
+    if(flag == 0)
+        printf("All tests passed!\n\n");
+    else
+       printf("TESTING FAILED!\n\n");
 
-   return 0;
+    return 0;
 }

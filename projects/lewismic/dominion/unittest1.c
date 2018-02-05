@@ -13,9 +13,9 @@
 
 #define FUNC_TEST "fullDeckCount"
 
-int main() {
-
-printf("Testing %s():\n", FUNC_TEST);
+int main()
+{
+  printf("Testing %s():\n", FUNC_TEST);
   int flag = 0;
 
   struct gameState G;
@@ -37,7 +37,7 @@ printf("Testing %s():\n", FUNC_TEST);
   G.deckCount[0] = 0;
   G.discardCount[0] = 0;
 
-/* Tests for condition when deck is empty. */
+  /* Tests for condition when deck is empty. */
   result = fullDeckCount(0, copper, &G);
   if (result == 0)   // asserttrue
   {
@@ -76,7 +76,7 @@ printf("Testing %s():\n", FUNC_TEST);
   memcpy(G.discard[0], testDiscard2, 3 * sizeof(int));
   G.discardCount[0] = 3;
 
-/* Tests for silvers if deck only has coppers. */
+  /* Tests for silvers if deck only has coppers. */
   result = fullDeckCount(0, silver, &G);
   if (result == 0)   // asserttrue
   {
@@ -88,7 +88,7 @@ printf("Testing %s():\n", FUNC_TEST);
     flag = -5;
   }
 
-/* Tests for coppers if deck only has coppers. */
+  /* Tests for coppers if deck only has coppers. */
   result = fullDeckCount(0, copper, &G);
   if (result == 15)   // asserttrue
   {

@@ -45,7 +45,7 @@ int main()
 
   for (p = 0; p < numPlayer; p++){   // Runs test for each player.
     for (handCount = 1; handCount <= SIZE_HAND; handCount++){   // Varies count of treasure cards.
-      for (bonus = 0; bonus <= SIZE_BONUS; bonus++) {
+      for (bonus = 0; bonus <= SIZE_BONUS; bonus++) {    // Varies size of bonus.
         printf ("Test player %d with %d treasure card(s) and %d bonus.\n", p, handCount, bonus);
         
         /* Resets gameState and initializes game. */
