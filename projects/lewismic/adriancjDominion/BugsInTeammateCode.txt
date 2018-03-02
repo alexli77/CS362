@@ -1,0 +1,133 @@
+/*******************************************************************************
+* Author: Michael S. Lewis                                                     *
+* Date: 2/28/2018                                                              *
+* Description: BugsInTeammateCode.txt contains my bug reports for              *
+*              Assignment-5. This information is also included in the          *
+*              Assignment-5.pdf.                                               *
+*																			   *
+* Note that Severity and Priority are based on a scale of 1-5, with 1 being    *
+* "Critical" and 5 being "Very Low".
+********************************************************************************/
+
+
+Bug 1
+*******************************************************************************
+ID: DOMIN-000001
+
+Title: Playing Smithy card draws incorrect number of cards (+4 instead of +3)
+
+Status: NEW
+
+Product: Dominion
+Version: CS362 class code (refactored by teammate Joel Adriance in Assignment-2)
+Platform: Red Hat Enterprise Linux 4.8.5-16 (tested on Flip1)
+
+Reported: 2018-2-27 19:57 PDT by Michael S. Lewis (lewismic@oregonstate.edu)
+Assignee: Unassigned
+
+Type: Gameplay Bug
+Severity: 3 (Medium)
+Priority: 2 (High)
+Reproducibility: Always
+Exposure: All
+Workaround: None
+
+Description: When the active player plays the Smithy card, it draws +4 cards to
+			 the player's hand, instead of the expected +3 cards.
+
+Repro steps:
+1. Launch a 2, 3, or 4 player game of Dominion.
+2. Observe your current hand.
+3. Play a Smithy card from your hand.
+4. Observe your current hand - notice that +4 cards have been drawn.
+
+Expected Results:
+Playing the Smithy card draws +3 cards to the current hand.
+
+Actual Results:
+Playing the Smithy card draws +4 cards to the current hand.
+*******************************************************************************
+
+
+Bug 2
+*******************************************************************************
+ID: DOMIN-000002
+
+Title: Playing Adventurer card results in an incorrect number of cards in hand
+
+Status: NEW
+
+Product: Dominion
+Version: CS362 class code (refactored by teammate Joel Adriance in Assignment-2)
+Platform: Red Hat Enterprise Linux 4.8.5-16 (tested on Flip1)
+
+Reported: 2018-2-27 20:51 PDT by Michael S. Lewis (lewismic@oregonstate.edu)
+Assignee: Unassigned
+
+Type: Gameplay Bug
+Severity: 3 (Medium)
+Priority: 2 (High)
+Reproducibility: Frequent
+Exposure: All
+Workaround: None
+
+Description: When the active player plays the Adventurer card, the player
+			 draws until 2 treasures have been gained, but the non-treasure
+			 cards that have been drawn, which are expected to be discarded,
+			 are not.
+
+Repro steps:
+1. Launch a 2, 3, or 4 player game of Dominion.
+2. Observe your current hand.
+3. Play an Adventurer card from your hand.
+4. Observe your current hand - notice that all cards drawn are kept in the
+hand (note that the bug is not expressed in cases where the first two cards
+drawn are treasures).
+
+Expected Results:
+Playing the Adventurer card draws +2 cards to the current hand. Any other
+drawn cards are discarded.
+
+Actual Results:
+Playing the Adventurer card draws +2 cards to the current hand, but any other
+drawn cards are not discarded.
+*******************************************************************************
+
+
+Bug 3
+*******************************************************************************
+ID: DOMIN-000003
+
+Title: Village card fails to give active player any actions
+
+Status: NEW
+
+Product: Dominion
+Version: CS362 class code (refactored by teammate Joel Adriance in Assignment-2)
+Platform: Red Hat Enterprise Linux 4.8.5-16 (tested on Flip1)
+
+Reported: 2018-2-27 21:43 PDT by Michael S. Lewis (lewismic@oregonstate.edu)
+Assignee: Unassigned
+
+Type: Gameplay Bug
+Severity: 3 (Medium)
+Priority: 2 (High)
+Reproducibility: Always
+Exposure: All
+Workaround: None
+
+Description: When the active player plays the Village card, it draws no additional
+			 actions for the player, instead of the expected +2 actions.
+
+Repro steps:
+1. Launch a 2, 3, or 4 player game of Dominion.
+2. Observe your current action count.
+3. Play a Village card from your hand.
+4. Observe your current hand - notice that no additional actions have been gained.
+
+Expected Results:
+Playing the Village card results in a gain of +2 actions for the active player.
+
+Actual Results:
+Playing the Village card does not result in any additional actions gained.
+*******************************************************************************
